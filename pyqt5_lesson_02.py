@@ -14,6 +14,7 @@ import sys
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
 
+
 class window(QMainWindow):
 
     def __init__(self):

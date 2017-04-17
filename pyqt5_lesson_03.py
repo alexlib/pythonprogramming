@@ -32,6 +32,7 @@ class window(QMainWindow):
         btn.move(100, 100)
         self.show()
 
+
 def run():
     app = QApplication(sys.argv)
     Gui = window()

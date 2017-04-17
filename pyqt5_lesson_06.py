@@ -14,7 +14,8 @@ import sys
 from PyQt5.QtCore import QCoreApplication
 # from PyQt5.QtGui import *
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QAction
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, \
+     QAction
 from PyQt5.uic.properties import QtGui
 
 
@@ -37,12 +38,6 @@ class window(QMainWindow):
         fileMenu = mainMenu.addMenu('&File')
         fileMenu.addAction(extractAction)
 
-        extractAction = QAction(QIcon('pic.png'), 'flee the scene', self)
-        extractAction.triggered.connect(self.close_application)
-
-        self.toolBar = self.addToolBar('Extraction')
-        self.toolBar.addAction(extractAction)
-
         self.home()
 
     def home(self):
@@ -50,6 +45,12 @@ class window(QMainWindow):
         btn.clicked.connect(self.close_application)
         btn.resize(btn.sizeHint())
         btn.move(0, 100)
+
+        extractAction = QAction(QIcon('todachoppa.png'), 'flee the scene', self)
+        extractAction.triggered.connect(self.close_application)
+
+        self.toolBar = self.addToolBar('Extraction')
+        self.toolBar.addAction(extractAction)
 
         self.show()
 

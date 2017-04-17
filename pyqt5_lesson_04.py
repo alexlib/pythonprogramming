@@ -28,14 +28,14 @@ class window(QMainWindow):
     def home(self):
         btn = QPushButton('quit', self)
         btn.clicked.connect(self.close_application)
-
-        btn.resize(btn.sizeHint())  #set to acceptable size automatic
+        btn.resize(btn.sizeHint())  # set to acceptable size automatic
         btn.move(0, 0)
         self.show()
 
     def close_application(self):
         print('whooo so custom')
         sys.exit()
+
 
 def run():
     app = QApplication(sys.argv)

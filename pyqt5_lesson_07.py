@@ -14,8 +14,9 @@ import sys
 from PyQt5.QtCore import QCoreApplication
 # from PyQt5.QtGui import *
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QAction, QMessageBox
-from PyQt5.uic.properties import QtGui
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, \
+     QAction, QMessageBox
+# from PyQt5.uic.properties import QtGui
 
 
 class window(QMainWindow):
@@ -56,8 +57,8 @@ class window(QMainWindow):
     def close_application(self):
 
         choice = QMessageBox.question(self, 'Message',
-                                     "Are you sure to quit?", QMessageBox.Yes |
-                                     QMessageBox.No, QMessageBox.No)
+                                      "Are you sure to quit?", QMessageBox.Yes |
+                                      QMessageBox.No, QMessageBox.No)
 
         if choice == QMessageBox.Yes:
             print('quit application')

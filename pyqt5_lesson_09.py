@@ -13,8 +13,10 @@
 import sys
 from PyQt5.QtCore import QCoreApplication, Qt
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QAction, QMessageBox
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, \
+     QAction, QMessageBox
 from PyQt5.QtWidgets import QCheckBox, QProgressBar
+
 
 class window(QMainWindow):
 
@@ -61,30 +63,27 @@ class window(QMainWindow):
         self.btn.move(200, 120)
         self.btn.clicked.connect(self.download)
 
-
         self.show()
 
     def download(self):
         self.completed = 0
 
         while self.completed < 100:
-            self.completed += 0.0001
+            self.completed += 0.00005
             self.progress.setValue(self.completed)
-
-
+            QApplication.processEvents()  # from stackoverflow
 
     def enlarge_window(self, state):
         if state == Qt.Checked:
             self.setGeometry(50, 50, 1000, 600)
         else:
-            self.setGeometry(50, 50 , 500, 300)
-
+            self.setGeometry(50, 50, 500, 300)
 
     def close_application(self):
 
         choice = QMessageBox.question(self, 'Message',
-                                     "Are you sure to quit?", QMessageBox.Yes |
-                                     QMessageBox.No, QMessageBox.No)
+                                      "Are you sure to quit?", QMessageBox.Yes |
+                                      QMessageBox.No, QMessageBox.No)
 
         if choice == QMessageBox.Yes:
             print('quit application')
