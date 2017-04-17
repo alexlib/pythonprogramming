@@ -12,8 +12,10 @@
 import sys
 from PyQt5.QtCore import QCoreApplication, Qt
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QAction, QMessageBox
-from PyQt5.QtWidgets import QCheckBox, QProgressBar, QComboBox, QLabel, QStyleFactory
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, \
+     QAction, QMessageBox
+from PyQt5.QtWidgets import QCheckBox, QProgressBar, QComboBox, QLabel, \
+     QStyleFactory
 from PyQt5.QtWidgets import QFontDialog
 
 
@@ -83,6 +85,7 @@ class window(QMainWindow):
         comboBox.move(25, 250)
         self.styleChoice.move(25, 150)
         comboBox.activated[str].connect(self.style_choice)
+        QApplication.processEvents()  # from stackoverflow
 
         self.show()
 
@@ -97,6 +100,7 @@ class window(QMainWindow):
         while self.completed < 100:
             self.completed += 0.0001
             self.progress.setValue(self.completed)
+            QApplication.processEvents()  # from stackoverflow
 
 
     def enlarge_window(self, state):

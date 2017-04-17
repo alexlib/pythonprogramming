@@ -87,6 +87,7 @@ class window(QMainWindow):
         while self.completed < 100:
             self.completed += 0.0001
             self.progress.setValue(self.completed)
+            QApplication.processEvents()  # from stackoverflow
 
 
     def enlarge_window(self, state):

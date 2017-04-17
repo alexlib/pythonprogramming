@@ -12,9 +12,11 @@
 import sys
 from PyQt5.QtCore import QCoreApplication, Qt
 from PyQt5.QtGui import QIcon, QColor
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QAction, QMessageBox
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, \
+     QAction, QMessageBox
 from PyQt5.QtWidgets import QCalendarWidget, QFontDialog
-from PyQt5.QtWidgets import QCheckBox, QProgressBar, QComboBox, QLabel, QStyleFactory
+from PyQt5.QtWidgets import QCheckBox, QProgressBar, QComboBox, QLabel, \
+     QStyleFactory
 from PyQt5.QtWidgets import QColorDialog
 
 
@@ -55,7 +57,8 @@ class window(QMainWindow):
 
     def color_picker(self):
         color = QColorDialog.getColor()
-        self.styleChoice.setStyleSheet('QWidget{background-color: %s}' % color.name())
+        self.styleChoice.setStyleSheet('QWidget{background-color: %s}' % \
+             color.name())
 
     def font_choice(self):
             font, valid = QFontDialog.getFont()
@@ -105,6 +108,7 @@ class window(QMainWindow):
     def style_choice(self, text):
         self.styleChoice.setText(text)
         QApplication.setStyle(QStyleFactory.create(text))
+        QApplication.processEvents()  # from stackoverflow
 
     def download(self):
         self.completed = 0
@@ -112,6 +116,7 @@ class window(QMainWindow):
         while self.completed < 100:
             self.completed += 0.0001
             self.progress.setValue(self.completed)
+            QApplication.processEvents()  # from stackoverflow
 
 
     def enlarge_window(self, state):
